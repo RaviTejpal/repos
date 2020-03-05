@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services Project5", "Integration Services Project5\Integration Services Project5.dtproj", "{FCC2CFAB-142B-42D6-A99C-97087B219711}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services Project1", "Integration Services Project1\Integration Services Project1.dtproj", "{A9EED465-3768-4816-88B5-B367B630E214}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCC2CFAB-142B-42D6-A99C-97087B219711}.Development|Default.ActiveCfg = Development
+		{FCC2CFAB-142B-42D6-A99C-97087B219711}.Development|Default.Build.0 = Development
+		{A9EED465-3768-4816-88B5-B367B630E214}.Development|Default.ActiveCfg = Development
+		{A9EED465-3768-4816-88B5-B367B630E214}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6451A1F-953A-4C80-A156-FCED96E83979}
+	EndGlobalSection
+EndGlobal

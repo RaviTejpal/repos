@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [krisha]
+    WITH PASSWORD = N'fzszse7U|tlicRrhphvsz<homsFT7_&#$!~<GaJymy}cpsts', SID = 0xB7DEC49D2052EA41A534E7F98C0FBD5E, DEFAULT_LANGUAGE = [us_english], CHECK_EXPIRATION = ON;
+

@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "adv2(DESKTOP-331SR1R\SQL_2017EVAL)", "<Server=DESKTOP-331SR1R\SQL_2017EVAL;Database=adv2;>", "{1B063629-A0F1-45B8-B5CC-958608C839E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B063629-A0F1-45B8-B5CC-958608C839E2}.Development|Default.ActiveCfg = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {305F4CC2-C40F-4EF3-8137-F9308CBAF9AB}
+	EndGlobalSection
+EndGlobal

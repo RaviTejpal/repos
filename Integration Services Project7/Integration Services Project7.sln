@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DailyETL", "Integration Services Project7\DailyETL.dtproj", "{CDE28AC1-205F-4984-A8D9-73CD76CD9307}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDE28AC1-205F-4984-A8D9-73CD76CD9307}.Development|Default.ActiveCfg = Development
+		{CDE28AC1-205F-4984-A8D9-73CD76CD9307}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7904A3F-4273-44F8-A7F8-7C4CED9AD08B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/11/2020 5:20:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SUNNY"
+  DTS:CreatorName="SUNNY\Hp"
+  DTS:DTSID="{0D2AC166-81E3-4D07-9079-7EFA58484BC2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="XML_Load_Into_Sql_Table"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B860E71F-B34D-4AFB-9463-964C0DC453E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SUNNY\MSSQLSERVER01.AdventureWorks2014]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E0EB2DD0-C96D-4915-BA96-2826B65BC757}"
+      DTS:ObjectName="SUNNY\MSSQLSERVER01.AdventureWorks2014">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SUNNY\MSSQLSERVER01;Initial Catalog=AdventureWorks2014;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F24B8393-A125-4B87-A4FA-72CB618B8D1E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A9869219-DF9A-4FEF-807B-41C6587D7966}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Car_SSIS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SUNNY\MSSQLSERVER01.AdventureWorks2014]"
+                      connectionManagerRefId="Package.ConnectionManagers[SUNNY\MSSQLSERVER01.AdventureWorks2014]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Car_Id]"
+                          cachedDataType="ui8"
+                          cachedName="Car_Id"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Car_Id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CarID]"
+                          cachedDataType="ui1"
+                          cachedName="CarID"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarID]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[CarID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
+                          cachedDataType="ui2"
+                          cachedName="Price"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Price]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Type"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Car_Id]"
+                          dataType="numeric"
+                          name="Car_Id"
+                          precision="20" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CarID]"
+                          dataType="ui1"
+                          name="CarID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                          dataType="i4"
+                          name="Price" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Type" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\XML Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+                  name="XML Source"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML data used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLData">F:\Sql\cars.xml</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable used by the XML source adapter to specify XML data."
+                      name="XMLDataVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how the XML source adapter gets XML data."
+                      name="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML schema definition used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLSchemaDefinition">F:\Sql\cars.xsd</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Identifies whether or not to use inline schema."
+                      name="UseInlineSchema">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how XML integer types are mapped."
+                      name="XMLIntegerMapping"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo]"
+                      name="CarInfo">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">CarInfo</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Make]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Make]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Make]"
+                          name="Make"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Model]"
+                          dataType="ui2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Model]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Model]"
+                          name="Model"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Car_Id]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].Columns[Car_Id]"
+                          name="Car_Id"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Make]"
+                          dataType="wstr"
+                          length="255"
+                          name="Make">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Model]"
+                          dataType="ui2"
+                          name="Model">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt16</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo].ExternalColumns[Car_Id]"
+                          dataType="ui8"
+                          name="Car_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output]"
+                      isErrorOut="true"
+                      name="CarInfo Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">CarInfo</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Name]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Name]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Make]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Make]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Make]"
+                          name="Make" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Model]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Model]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Model]"
+                          name="Model" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Car_Id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[Car_Id]"
+                          name="Car_Id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Name]"
+                          dataType="nText"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Make]"
+                          dataType="nText"
+                          name="Make" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Model]"
+                          dataType="nText"
+                          name="Model" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Car_Id]"
+                          dataType="nText"
+                          name="Car_Id" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car]"
+                      name="Car">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">Car</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Car_Id]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Car_Id]"
+                          name="Car_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[CarID]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[CarID]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[CarID]"
+                          name="CarID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Price]"
+                          dataType="ui2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Price]"
+                          name="Price"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Type]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].Columns[Type]"
+                          name="Type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Car_Id]"
+                          dataType="ui8"
+                          name="Car_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[CarID]"
+                          dataType="ui1"
+                          name="CarID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.Byte</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Price]"
+                          dataType="ui2"
+                          name="Price">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt16</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car].ExternalColumns[Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output]"
+                      isErrorOut="true"
+                      name="Car Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">Car</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Car_Id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Car_Id]"
+                          name="Car_Id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[CarID]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[CarID]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[CarID]"
+                          name="CarID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Price]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Price]"
+                          name="Price" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Type]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Type]"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[Type]"
+                          name="Type" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Car_Id]"
+                          dataType="nText"
+                          name="Car_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[CarID]"
+                          dataType="nText"
+                          name="CarID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Price]"
+                          dataType="nText"
+                          name="Price" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car Error Output].ExternalColumns[Type]"
+                          dataType="nText"
+                          name="Type" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Car]"
+                  endId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Car"
+                  startId="Package\Sequence Container\Data Flow Task\XML Source.Outputs[Car]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task 1"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E4448326-7072-450C-820E-EA85F102BA25}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Car_Info]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SUNNY\MSSQLSERVER01.AdventureWorks2014]"
+                      connectionManagerRefId="Package.ConnectionManagers[SUNNY\MSSQLSERVER01.AdventureWorks2014]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Make]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Make"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Make]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Model]"
+                          cachedDataType="ui2"
+                          cachedName="Model"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Model]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Car_Id]"
+                          cachedDataType="ui8"
+                          cachedName="Car_Id"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Car_Id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Make]"
+                          dataType="wstr"
+                          length="255"
+                          name="Make" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Model]"
+                          dataType="i4"
+                          name="Model" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Car_Id]"
+                          dataType="numeric"
+                          name="Car_Id"
+                          precision="20" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task 1\XML Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+                  name="XML Source"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML data used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLData">F:\Sql\cars.xml</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable used by the XML source adapter to specify XML data."
+                      name="XMLDataVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how the XML source adapter gets XML data."
+                      name="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML schema definition used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLSchemaDefinition">F:\Sql\cars.xsd</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Identifies whether or not to use inline schema."
+                      name="UseInlineSchema">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how XML integer types are mapped."
+                      name="XMLIntegerMapping"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo]"
+                      name="CarInfo">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">CarInfo</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Make]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Make]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Make]"
+                          name="Make"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Model]"
+                          dataType="ui2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Model]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Model]"
+                          name="Model"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Car_Id]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].Columns[Car_Id]"
+                          name="Car_Id"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Make]"
+                          dataType="wstr"
+                          length="255"
+                          name="Make">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Model]"
+                          dataType="ui2"
+                          name="Model">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt16</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo].ExternalColumns[Car_Id]"
+                          dataType="ui8"
+                          name="Car_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output]"
+                      isErrorOut="true"
+                      name="CarInfo Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">CarInfo</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Name]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Name]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Make]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Make]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Make]"
+                          name="Make" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Model]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Model]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Model]"
+                          name="Model" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Car_Id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[Car_Id]"
+                          name="Car_Id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Name]"
+                          dataType="nText"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Make]"
+                          dataType="nText"
+                          name="Make" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Model]"
+                          dataType="nText"
+                          name="Model" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo Error Output].ExternalColumns[Car_Id]"
+                          dataType="nText"
+                          name="Car_Id" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car]"
+                      name="Car">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">Car</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Car_Id]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Car_Id]"
+                          name="Car_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[CarID]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[CarID]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[CarID]"
+                          name="CarID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Price]"
+                          dataType="ui2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Price]"
+                          name="Price"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Type]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].Columns[Type]"
+                          name="Type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Car_Id]"
+                          dataType="ui8"
+                          name="Car_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[CarID]"
+                          dataType="ui1"
+                          name="CarID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.Byte</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Price]"
+                          dataType="ui2"
+                          name="Price">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt16</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car].ExternalColumns[Type]"
+                          dataType="wstr"
+                          length="255"
+                          name="Type">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output]"
+                      isErrorOut="true"
+                      name="Car Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">Car</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Car_Id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Car_Id]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Car_Id]"
+                          name="Car_Id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[CarID]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[CarID]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[CarID]"
+                          name="CarID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Price]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Price]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Price]"
+                          name="Price" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Type]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Type]"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[Type]"
+                          name="Type" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Car_Id]"
+                          dataType="nText"
+                          name="Car_Id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[CarID]"
+                          dataType="nText"
+                          name="CarID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Price]"
+                          dataType="nText"
+                          name="Price" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[Car Error Output].ExternalColumns[Type]"
+                          dataType="nText"
+                          name="Type" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task 1.Paths[CarInfo]"
+                  endId="Package\Sequence Container\Data Flow Task 1\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="CarInfo"
+                  startId="Package\Sequence Container\Data Flow Task 1\XML Source.Outputs[CarInfo]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0DD5DA56-86E4-4E5F-9228-38E674A95B61}"
+          DTS:From="Package\Sequence Container\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Data Flow Task 1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="29.642855856745,13.0952364901702" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task 1"
+          TopLeft="36.7857128931653,104.095234862963" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="105.642855856745,55.7619031568369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.8095237030869,48.3333317061265"
+              Start="0,0"
+              End="11.8095237030869,40.8333317061265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1666658530633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1666658530633"
+                    Point2="0,24.1666658530633"
+                    Point3="4,24.1666658530633" />
+                  <mssgle:LineSegment
+                    End="7.80952370308694,24.1666658530633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.80952370308694,24.1666658530633"
+                    Point2="11.8095237030869,24.1666658530633"
+                    Point3="11.8095237030869,28.1666658530633" />
+                  <mssgle:LineSegment
+                    End="11.8095237030869,40.8333317061265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.0884803359565,29.1666658530633,35.986484375,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="203.333333333334,202"
+          Size="203.333333333334,244.666666666667"
+          Id="Package\Sequence Container"
+          TopLeft="56.6666658222675,33.7999993956089" />
+        <AnnotationLayout
+          Text="Create different data flows to load xml data ."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="264,40"
+          Id="096d8a01-8cf5-463b-971c-87d1f383d499"
+          TopLeft="294.047614665968,95.9523792366187" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task\XML Source"
+          TopLeft="60.833332426846,25.1333328839143" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="73.9583322312683,155.999997210503" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Car]"
+          TopLeft="128.499999093513,67.799999550581">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.4583331377556,88.1999976599217"
+              Start="0,0"
+              End="31.4583331377556,80.6999976599217">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.0999988299608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.0999988299608"
+                    Point2="0,44.0999988299608"
+                    Point3="4,44.0999988299608" />
+                  <mssgle:LineSegment
+                    End="27.4583331377556,44.0999988299608" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.4583331377556,44.0999988299608"
+                    Point2="31.4583331377556,44.0999988299608"
+                    Point3="31.4583331377556,48.0999988299608" />
+                  <mssgle:LineSegment
+                    End="31.4583331377556,80.6999976599217" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.48295563137779,49.0999988299608,16.492421875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135.333333333334,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task 1\XML Source"
+          TopLeft="74.6666666666666,40.6666666666667" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Sequence Container\Data Flow Task 1\OLE DB Destination"
+          TopLeft="114.666666666667,171.333333333333" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task 1.Paths[CarInfo]"
+          TopLeft="142.333333333333,83.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.3333333333333,88"
+              Start="0,0"
+              End="58.3333333333333,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40"
+                    Point2="0,44"
+                    Point3="4,44" />
+                  <mssgle:LineSegment
+                    End="54.3333333333333,44" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.3333333333333,44"
+                    Point2="58.3333333333333,44"
+                    Point3="58.3333333333333,48" />
+                  <mssgle:LineSegment
+                    End="58.3333333333333,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.0771158854167,49,34.1791015625,9.7978515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task 1\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

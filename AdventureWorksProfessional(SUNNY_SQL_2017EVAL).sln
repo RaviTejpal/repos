@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "AdventureWorksProfessional(SUNNY\SQL_2017EVAL)", "<Server=Sunny\SQL_2017Eval;Database=AdventureWorksProfessional;>", "{4F6CF4F5-AEB1-4508-A6EC-2FBF3D03B686}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F6CF4F5-AEB1-4508-A6EC-2FBF3D03B686}.Development|Default.ActiveCfg = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {376D04B1-CE40-4A1B-9D2E-4FCA0C3C6392}
+	EndGlobalSection
+EndGlobal
