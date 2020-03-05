@@ -267,6 +267,7 @@
     <Build Include="HumanResources\Tables\Table1-SSDT.sql" />
     <Build Include="HumanResources\Stored Procedures\usp_Search_employees.sql" />
     <Build Include="dbo\Tables\City.sql" />
+    <Build Include="dbo\Stored Procedures\GetEmployeeSales.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\Adv-SSDT_20200212_13-34-30.dacpac" />
